@@ -1,4 +1,14 @@
 <template name="home">
-<h1>Home</h1>
-{{>trends url=generateURL}}
+  <h1>Home</h1>
+  <div class="row">
+    <div class="col-md-6">
+      {{>trends url=generateURL}}
+    </div>
+    <div class="col-md-6">
+      {{>trends url=generateURL2}}
+    </div>
+    <div class="col-md-6">
+      {{>trends url=generateURL3}}
+    </div>
+  </div>
 </template>
