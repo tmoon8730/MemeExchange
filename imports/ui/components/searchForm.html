@@ -1,0 +1,15 @@
+<template name="searchForm">
+<div class="row">
+  <div class="col-md-4">
+    <form>
+      <input type="text" name="playerName">
+      <input type="submit" value="Add Player">
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+      {{>trends url=generateURL}}
+  </div>
+</div>
+</template>
