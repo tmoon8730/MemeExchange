@@ -9,6 +9,9 @@ import '../ui/pages/home.js';
 import '../ui/pages/termsOfService.js';
 import '../ui/pages/search.js';
 
+/*
+ * Home Page
+ */
 FlowRouter.route('/',{
   action: function(){
     // Renders when the http://app.com/ route is hit
@@ -20,6 +23,22 @@ FlowRouter.route('/',{
   name: 'home'
 })
 
+/*
+ * Search Page
+ */
+FlowRouter.route('/search', {
+  action: function(){
+    // Renders when the http://app.com/search route is hit
+    console.log("In the Search Page!");
+    // Render the search page
+    // /imports/ui/pages/search.html
+    BlazeLayout.render('applicationLayout', { main: 'search', title: 'Search Page' });
+  }
+})
+
+/*
+ * Terms of Service Page
+ */
 FlowRouter.route('/terms', {
   action: function(){
     // This stuff happens when we visit http://app.com/terms
@@ -29,14 +48,4 @@ FlowRouter.route('/terms', {
     BlazeLayout.render('applicationLayout', { main: 'termsOfService', title: 'Terms of Service Page' });
   },
   name: 'termsOfService' // Optional route name
-})
-
-FlowRouter.route('/search', {
-  action: function(){
-    // Renders when the http://app.com/search route is hit
-    console.log("In the Search Page!");
-    // Render the search page
-    // /imports/ui/pages/search.html
-    BlazeLayout.render('applicationLayout', { main: 'search', title: 'Search Page' });
-  }
 })

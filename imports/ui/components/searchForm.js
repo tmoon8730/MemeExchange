@@ -2,35 +2,31 @@ import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
 import './searchForm.html';
 
-
-this.searchTerm = "";
-
+/*
+ * Handlers for events from the searchFrom Template
+ */
 Template.searchForm.events({
+  // Triggered when the for is submitted
+  // either by pressing the submit button
+  // or by pressing enter after typing the
+  // search term
   'submit form': function(event){
-    event.preventDefault();
-    searchTerm = event.target.playerName.value;
-    console.log(searchTerm);
-    Session.set("searchTerm", searchTerm);
+    event.preventDefault(); // This stops the page from reloading
+    searchTerm = event.target.playerName.value; // Gets the value from the text field
+    console.log("search term = " + searchTerm);
+    Session.set("searchTerm", searchTerm); // Sets the session variable so that it can be accessed in the helper functions
   },
 })
 
+
+/*
+ * Helper functions that are accesible from the html by {{<function name>}}
+ */
 Template.searchForm.helpers({
-  generateURL: function(){
-    if(Session.get("searchTerm") !== undefined || Session.get("searchTerm") !== ""){
-          var term = Session.get("searchTerm").replace(' ', "%20");
-    }
-    console.log("term = " + term);
-    //var url = "http://www.google.com/trends/embed/fetchComponent?hl=en-US&q=" + term + "&cid=TIMESERIES_GRAPH_0&export=5&h=500";
-  //  var url = "https://www.google.com/trends/embed/explore/TIMESERIES?req=%7B%22comparisonItem%22%3A%5B%7B%22keyword%22%3A%22pepe%20the%20frog%22%2C%22geo%22%3A%22%22%2C%22time%22%3A%22today%205-y%22%7D%5D%2C%22category%22%3A0%2C%22property%22%3A%22%22%7D&tz=240";
-//https://www.google.com/trends/embed/explore/TIMESERIES?req=%7B%22comparisonItem%22%3A%5B%7B%22keyword%22%3A%22pepe%20the%20frog%22%2C%22geo%22%3A%22%22%2C%22time%22%3A%22today%205-y%22%7D%5D%2C%22category%22%3A0%2C%22property%22%3A%22%22%7D&amp;tz=240" width="100%" frameborder="0" scrolling="0" style="border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.117647) 0px 0px 2px 0px, rgba(0, 0, 0, 0.239216) 0px 2px 2px 0px; height: 384px; width: 1000px
-  //  var url = "https://www.google.com/trends/embed/explore/TIMESERIES?req=%7B%22comparisonItem%22%3A%5B%7B%22keyword%22%3A%22" + term + "%22%2C%22geo%22%3A%22%22%2C%22time%22%3A%22today%205-y%22%7D%5D%2C%22category%22%3A0%2C%22property%22%3A%22%22%7D&amp;tz=240";
-    Session.set("searchURL",term);
-    return term;
-  },
+  // A getter for the searchTerm variable which is
+  // passed to the trends template and then into
+  // the iframe to change the graph
   searchTerm: function(){
-    return Session.get("searchTerm");
-  },
-  fullURL: function(){
-    return Session.get("searchURL");
+    return Session.get("searchTerm"); // Returns the Session variable searchTerm which is set by the search text field
   },
 })
