@@ -1,5 +1,5 @@
 # MemeExchange
 
-This project is dedicated to a meme based ranking system.
+This project is dedicated to a ranking system for memes. Memes will be ranked accordingly based on dankness. 
 
-Currently under construction 
+##Currently under construction 
