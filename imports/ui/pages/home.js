@@ -7,12 +7,12 @@ import '../components/trends.js';
 
 Template.home.helpers({
   generateURL: function (){
-    return "http://www.google.com/trends/fetchComponent?hl=en-US&q=pepe%20the%20frog,dat%20boi&cid=TIMESERIES_GRAPH_0&export=5&h=500";
+    return "pepe%20the%20frog";
   },
   generateURL2: function (){
-    return "http://www.google.com/trends/fetchComponent?hl=en-US&q=harambe,depression&cid=TIMESERIES_GRAPH_0&export=5&h=500";
+    return "harambe";
   },
   generateURL3: function (){
-    return "http://www.google.com/trends/fetchComponent?hl=en-US&q=arthur%20meme,sanic&cid=TIMESERIES_GRAPH_0&export=5&h=500";
+    return "sanic";
   },
 });

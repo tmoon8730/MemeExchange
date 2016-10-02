@@ -6,7 +6,7 @@ import '../ui/layout/applicationLayout.js';
 
 // Import pages
 import '../ui/pages/home.js';
-import '../ui/pages/termsOfService.js';
+import '../ui/pages/about.js';
 import '../ui/pages/search.js';
 
 /*
@@ -39,13 +39,13 @@ FlowRouter.route('/search', {
 /*
  * Terms of Service Page
  */
-FlowRouter.route('/terms', {
+FlowRouter.route('/about', {
   action: function(){
     // This stuff happens when we visit http://app.com/terms
-    console.log("In the Terms of Service Page!");
+    console.log("In the About Page!");
     // Render the terms of service page
     // /imports/ui/pages/termsOfService.html
-    BlazeLayout.render('applicationLayout', { main: 'termsOfService', title: 'Terms of Service Page' });
+    BlazeLayout.render('applicationLayout', { main: 'about', title: 'About Page' });
   },
-  name: 'termsOfService' // Optional route name
+  name: 'about' // Optional route name
 })
