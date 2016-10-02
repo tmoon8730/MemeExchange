@@ -30,3 +30,10 @@ Template.searchForm.helpers({
     return Session.get("searchTerm"); // Returns the Session variable searchTerm which is set by the search text field
   },
 })
+
+/*
+ * Created function when the template is created to initialize variables
+ */
+Template.searchForm.created = function(){
+  Session.set("searchTerm","dat%20boi");
+}
