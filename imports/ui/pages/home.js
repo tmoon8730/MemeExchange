@@ -7,12 +7,12 @@ import '../components/trends.js';
 
 Template.home.helpers({
   generateURL: function (){
-    return "pepe%20the%20frog";
+    return "America";
   },
   generateURL2: function (){
-    return "harambe";
+    return "Europe";
   },
   generateURL3: function (){
-    return "sanic";
+    return "Asia";
   },
 });
